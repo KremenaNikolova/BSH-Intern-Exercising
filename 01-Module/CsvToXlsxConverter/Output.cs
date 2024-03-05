@@ -1,5 +1,6 @@
 ﻿namespace CsvToXlsxConverter
 {
+    using static ExceptionMessages;
     public class Output
     {
         public static string GetOutput()
@@ -8,11 +9,18 @@
             string newFileName = Console.ReadLine()!;
             string excelFilePath = $"..\\..\\..\\{newFileName}.xlsx";
 
-            while (File.Exists(excelFilePath))
+            try
             {
-                Console.WriteLine("File with that name already exist. \n" + "Please try with another name!");
-                newFileName = Console.ReadLine()!;
-                excelFilePath = $"..\\..\\..\\{newFileName}.xlsx";
+                while (File.Exists(excelFilePath))
+                {
+                    Console.WriteLine("File with that name already exist. \n" + "Please try with another name!");
+                    newFileName = Console.ReadLine()!;
+                    excelFilePath = $"..\\..\\..\\{newFileName}.xlsx";
+                }
+            }
+            catch (Exception)
+            {
+                return WrongInputMessage;
             }
 
 
