@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Contact form</title>
 </head>
 
 <body>
@@ -13,16 +13,16 @@
         <form>
 
             <label for="fname">First Name</label>
-            <input type="text" id="fname" name="firstname">
+            <input type="text" id="fname" name="fname" required>
 
             <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="lastname">
+            <input type="text" id="lname" name="lname" required>
 
             <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="example@bsh.bg">
+            <input type="email" id="email" name="email" placeholder="example@bsh.bg" required>
 
             <label for="gender">Gender</label>
-            <select id="country" name="country">
+            <select id="gender" name="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
@@ -34,7 +34,7 @@
             <input type="text" id="city" name="city">
 
             <label for="phone">Phone Number</label>
-            <input type="text" id="phone" name="phone">
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 
             <label for="price">Price</label>
             <input type="text" id="price" name="price">
