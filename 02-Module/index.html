@@ -10,8 +10,8 @@
 
 <body>
     <div class="container">
-        <form>
-
+        <form id="submit-form">
+        
             <label for="fname">First Name</label>
             <input type="text" id="fname" name="fname" required>
 
@@ -41,12 +41,12 @@
             <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 
             <label for="price">Price</label>
-            <input type="text" id="price" name="price">
+            <input type="number" min="0" id="price" name="price">
 
             <label for="birthdate">Birth Date</label>
-            <input type="text" id="birthdate" name="birthdate">
+            <input type="date" id="birthdate" name="birthdate">
 
-            <input type="submit" value="Submit">
+            <button type="submit" id="submit-btn">Submit</button>
 
         </form>
     </div>
