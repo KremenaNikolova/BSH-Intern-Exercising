@@ -1,6 +1,7 @@
 ﻿namespace CsvToXlsxConverter
 {
     using OfficeOpenXml;
+    using System.Globalization;
 
     public class Converter
     {
@@ -20,7 +21,18 @@
                 string[] fields = csvLine.Split('|');
                 for (int i = 0; i < fields.Length; i++)
                 {
-                    worksheet.Cells[row, i + 1].Value = fields[i];
+                    string dateTimeFormat = "dd/MM/yyyy";
+                    bool isValidDate = DateTime.TryParseExact(fields[i], dateTimeFormat, CultureInfo.InvariantCulture ,DateTimeStyles.None, out DateTime date);
+
+                    if (isValidDate)
+                    {
+                        worksheet.Cells[row, i + 1].Value = date;
+                    }
+                    else
+                    {
+                        worksheet.Cells[row, i + 1].Value = fields[i];
+                    }
+                    
                 }
                 row++;
             }
