@@ -28,10 +28,14 @@
             </select>
 
             <label for="country">Country</label>
-            <input type="text" id="country" name="country">
+            <select id="country" name="country">
+                <option value="">Select Country</option>
+            </select>
 
             <label for="city">City</label>
-            <input type="text" id="city" name="city">
+            <select id="city" name="city">
+                <option value="">Select City</option>
+            </select>
 
             <label for="phone">Phone Number</label>
             <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
@@ -46,6 +50,8 @@
 
         </form>
     </div>
+
+    <script src="country-city-selector.js"></script>
 </body>
 
 </html>
