@@ -1,32 +1,63 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+main {
+
+}
+
+body {
+    /* background: rgb(209, 204, 210); */
+    background-image: url(img/mountain-background.jpg);
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(127, 3, 149, 0.6);
+    margin: 0;
+    padding: 2em;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    display: flex;
+}
+
 input[type=text],
 input[type=email],
 input[type=tel],
+input[type=number],
+input[type=date],
 select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(79, 3, 92);
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 16px;
-    resize: vertical
+    resize: vertical;
 }
 
 button {
-    background-color: #04AA6D;
+    background-color: rgb(127, 3, 149);
     color: white;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: medium;
 }
 
-button:hover {
-    background-color: #45a049;
+.btn-container {
+    margin-top: 1em;
+    align-items: right;
+    justify-content: right;
+    display: flex;
 }
 
 .container {
+    width: 32em;
+    border: 2px solid rgb(119, 23, 96);
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
