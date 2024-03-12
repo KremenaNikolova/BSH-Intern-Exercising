@@ -2,9 +2,9 @@
 
 1. Create a small database for an online shop. You should have tables with data for:
 
--     Products that should contain **product name, category, price, quantity**;
--     Categories - **category name**;
--     Customers - f**irst and last names, email, gender, country, city, phone, birthdate**;
+- Products that should contain **product name, category, price, quantity**;
+- Categories - **category name**;
+- Customers - f**irst and last names, email, gender, country, city, phone, birthdate**;
 
 2. After setting up your tables and relations, please:
 
