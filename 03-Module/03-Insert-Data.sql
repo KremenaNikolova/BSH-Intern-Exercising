@@ -36,17 +36,29 @@ SELECT [First Name]
 	   ,[CategoryId]
 	   ,[Price]
 	   ,[Quantity]
-	   ,[CustomerId]
 	    )
- VALUES ('Shirt', 'Cloths', 1, 5.55, 3, 3),
-		('Jeans', 'Cloths', 1, 15.32, 25, 1),
-		('Dog-Toy', 'Toys', 2, 3.00, 2, 25),
-		('Ball', 'Toys', 2, 1.55, 50, 15),
-		('Hamburger', 'Food', 3, 4.25, 3, 33),
-		('Hamburger', 'Food', 3, 4.25, 1, 30),
-		('Coca-Cola', 'Drinks', 4, 2.60, 2, 9),
-		('Coca-Cola', 'Drinks', 4, 2.60, 3, 12),
-		('Coca-Cola', 'Drinks', 4, 2.60, 12, 22),
-		('Random-thing', 'Others', 5, 123.33, 1, 3),
-		('Random-thing', 'Others', 5, 123.33, 1, 25)
+ VALUES ('Shirt', 'Cloths', 1, 5.55, 3),
+		('Jeans', 'Cloths', 1, 15.32, 25),
+		('Dog-Toy', 'Toys', 2, 3.00, 2),
+		('Ball', 'Toys', 2, 1.55, 50),
+		('Hamburger', 'Food', 3, 4.25, 3),
+		('Chips', 'Food', 3, 4.25, 1),
+		('Coca-Cola', 'Drinks', 4, 2.60, 2),
+		('Tea', 'Drinks', 4, 2.60, 3),
+		('Soda', 'Drinks', 4, 2.60, 12),
+		('Random-thing', 'Others', 5, 123.33, 1),
+		('Random-thing 2', 'Others', 5, 123.33, 1)
+
+INSERT INTO [CustomersProducts](
+	   [CustomerId]
+	  ,[ProductId]
+	  ,[Quantity]
+	   )
+VALUES (3, 1, 2),
+	   (1, 1, 1),
+	   (33, 3, 11),
+	   (12, 5, 3),
+	   (56, 5, 1),
+	   (3, 2, 1)
+		
 
