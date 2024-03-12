@@ -16,6 +16,11 @@
                     file = Console.ReadLine()!;
                 }
             }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine(SomethingGetWrongMessage);
+                return GetFile();
+            }
             catch (Exception)
             {
                 return WrongInputMessage;
