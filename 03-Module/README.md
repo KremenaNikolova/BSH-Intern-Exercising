@@ -30,5 +30,4 @@ I had a problem with import data from .xlsx
 <a href="https://www.sqlshack.com/sql-server-functions-for-converting-string-to-date/">Converting string into DATE in MSSQL</a>
 
 ## Database:
-
-![Screenshot 2024-03-11 142843](https://github.com/KremenaNikolova/BSH-Intern-Exercising/assets/106489962/afffd960-c20c-4153-8003-c7a071e68f1b)
+![Database=Image](https://github.com/KremenaNikolova/BSH-Intern-Exercising/assets/106489962/36620228-46a9-4eac-afb2-568534aadbba)
