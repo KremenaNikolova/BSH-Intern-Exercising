@@ -1,6 +1,6 @@
 ﻿namespace CustomerApplication.Data
 {
-    using CustomerApplication.Data.Model;
+    using CustomerApplication.Data.Models;
     using Microsoft.EntityFrameworkCore;
 
     public class CustomerApplicationDbContext : DbContext

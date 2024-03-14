@@ -3,7 +3,7 @@
     using System.Threading.Tasks;
     
     using CustomerApplication.Data;
-    using CustomerApplication.Data.Model;
+    using CustomerApplication.Data.Models;
     using CustomerApplication.Services.Interfaces;
     using CustomerApplication.ViewModels.Home;
 

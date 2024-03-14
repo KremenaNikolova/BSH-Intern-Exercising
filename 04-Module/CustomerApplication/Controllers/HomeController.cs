@@ -1,10 +1,12 @@
 ﻿namespace CustomerApplication.Controllers
 {
+    using System.Diagnostics;
+    
+    using Microsoft.AspNetCore.Mvc;
+    
     using CustomerApplication.Services.Interfaces;
     using CustomerApplication.ViewModels;
     using CustomerApplication.ViewModels.Home;
-    using Microsoft.AspNetCore.Mvc;
-    using System.Diagnostics;
 
     public class HomeController : Controller
     {
@@ -20,23 +22,27 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(CustomerForm customer)
+        public async Task<IActionResult> Index(CustomerForm customerModel)
         {
             if(!ModelState.IsValid)
             {
-                return View(customer);
+                return View(customerModel);
             }
 
             try
             {
-                await _customerService.AddCustomerAsync(customer);
+                await _customerService.AddCustomerAsync(customerModel);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("pak obyrkah");
+                return View(customerModel);
             }
+
             return RedirectToAction("Index", "Home");
+
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

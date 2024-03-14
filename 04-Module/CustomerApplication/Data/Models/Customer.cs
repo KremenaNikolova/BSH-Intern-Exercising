@@ -1,4 +1,4 @@
-﻿namespace CustomerApplication.Data.Model
+﻿namespace CustomerApplication.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
 
