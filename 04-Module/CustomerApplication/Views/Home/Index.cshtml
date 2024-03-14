@@ -1,8 +1,79 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using CustomerApplication.ViewModels.Home.Enums
+@model CustomerForm;
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container1">
+    <form method="get">
+        <div class="container2">
+            <div class="row">
+                <div asp-validation-summary="All"></div>
+
+                <div class="border-right">
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="mb-3">
+                                <label asp-for="FirstName"></label>
+                                <input asp-for="FirstName" class="form-control" aria-required="true">
+                                <span asp-validation-for="FirstName"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="LastName">Last Name</label>
+                                <input asp-for="LastName" class="form-control">
+                                <span asp-validation-for="LastName"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Email">Email</label>
+                                <input asp-for="Email" class="form-control">
+                                <span asp-validation-for="Email"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Gender">Gender</label>
+                                <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
+                                    <option value="">   --- Select ---   </option>
+                                </select>
+                                <span asp-validation-for="Gender"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Country">Country</label>
+                                <select asp-for="Country" class="form-control" id="country" name="country">
+                                    <option value="">   --- Select ---   </option>
+                                </select>
+                                <span asp-validation-for="Country"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="City">City</label>
+                                <select asp-for="City" class="form-control" id="city" name="city">
+                                    <option value="">   --- Select ---   </option>
+                                </select>
+                                <span asp-validation-for="City"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="PhoneNumber">Phone Number</label>
+                                <input asp-for="PhoneNumber" class="form-control">
+                                <span asp-validation-for="PhoneNumber"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Birthday">Birth Date</label>
+                                <input asp-for="Birthday" type="date" class="form-control">
+                                <span asp-validation-for="Birthday"></span>
+                            </div>
+                        </div>
+
+                        <div class="btn-container">
+                            <button type="submit" class="btn btn-dark">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+
+<script src="~/js/location.js" asp-append-version="true"></script>
+
