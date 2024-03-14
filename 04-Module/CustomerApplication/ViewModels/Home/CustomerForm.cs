@@ -23,19 +23,19 @@
         public string LastName { get; set; } = null!;
 
         [Required]
-        [EmailAddress(ErrorMessage = WrongEmailInput)]
+        [RegularExpression(EmailValidation, ErrorMessage = WrongEmailInput)]
         public string Email { get; set; } = null!;
 
         [Display(Name = "Phone Number")]
-        [RegularExpression(PhoneNumberValidation)]
+        [RegularExpression(PhoneNumberValidation, ErrorMessage = WrongPhoneNumberInput)]
         public string? PhoneNumber { get; set; }
 
-        public Gender Gender { get; set; }
+        public Gender? Gender { get; set; }
 
-        public string Country { get; set; } = null!;
+        public string? Country { get; set; }
 
-        public string City { get; set; } = null!;
+        public string? City { get; set; }
 
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
     }
 }
