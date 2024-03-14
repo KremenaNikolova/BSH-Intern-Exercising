@@ -3,6 +3,8 @@ namespace CustomerApplication
     using Microsoft.EntityFrameworkCore;
     
     using CustomerApplication.Data;
+    using CustomerApplication.Services;
+    using CustomerApplication.Services.Interfaces;
 
     public class Program
     {
@@ -18,6 +20,8 @@ namespace CustomerApplication
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
 
             var app = builder.Build();
 
