@@ -6,39 +6,43 @@
 }
 
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     background-image: url(../img/mountain-background.jpg);
     background-size: cover;
-    box-shadow: inset 0 0 0 2000px rgba(127, 3, 149, 0.6);
+    box-shadow: inset 0 0 0 2000px rgba(0, 130, 255, 0.6);
     min-height: 100vh;
 }
 
-.container1 {
+header,
+footer {
+    background-color: #0153A2;
+}
+
+.main-container {
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
-.container2 {
+.custommer-app {
     width: 32em;
-    border: 2px solid rgb(119, 23, 96);
+    border: 2px solid rgb(1, 83, 162 );
     border-radius: 5px;
     background-color: #f2f2f2;
-    
 }
 
 .btn-container {
