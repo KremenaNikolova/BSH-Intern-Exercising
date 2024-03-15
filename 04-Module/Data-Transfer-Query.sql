@@ -1,0 +1,21 @@
+USE [Customer-Application]
+
+INSERT INTO [Customers](
+	   [FirstName]
+      ,[LastName]
+      ,[Email]
+      ,[PhoneNumber]
+      ,[Gender]
+      ,[Country]
+      ,[City]
+      ,[Birthday]
+	  )
+SELECT [First Name]
+      ,[Last Name]
+      ,[Email]
+      ,[Gender]
+      ,[Country]
+      ,[City]
+      ,[Phone]
+      ,[Birthdate]
+  FROM [Online Shop].[dbo].[Customers]
