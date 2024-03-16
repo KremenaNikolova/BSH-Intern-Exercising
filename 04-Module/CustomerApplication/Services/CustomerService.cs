@@ -33,5 +33,24 @@
             await _dbContext.Customers.AddAsync(customer);
             await _dbContext.SaveChangesAsync();
         }
+
+        public IQueryable<CustomerForm> GetAllCustomersAsync()
+        {
+            var allCustomers = _dbContext
+                .Customers
+                .Select(c => new CustomerForm()
+                {
+                    FirstName = c.FirstName,
+                    LastName = c.LastName,
+                    Email = c.Email,
+                    PhoneNumber = c.PhoneNumber,
+                    Country = c.Country,
+                    City = c.City,
+                    Birthday = c.Birthday
+                })
+                .AsQueryable();
+
+            return allCustomers;
+        }
     }
 }

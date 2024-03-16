@@ -1,12 +1,16 @@
 ﻿namespace CustomerApplication.Controllers
 {
     using System.Diagnostics;
-    
+
     using Microsoft.AspNetCore.Mvc;
-    
+
     using CustomerApplication.Services.Interfaces;
     using CustomerApplication.ViewModels;
     using CustomerApplication.ViewModels.Home;
+    
+    using static CustomerApplication.Commons.ValidationConstants;
+
+    using X.PagedList;
 
     public class HomeController : Controller
     {
@@ -18,13 +22,13 @@
         }
         public IActionResult Index()
         {
-            return  View();
+            return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(CustomerForm customerModel)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(customerModel);
             }
@@ -40,6 +44,23 @@
 
             return RedirectToAction("Index", "Home");
 
+        }
+
+        public IActionResult All(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = PageValidation.pageSize;
+
+            try
+            {
+                var allCustomers = _customerService.GetAllCustomersAsync().ToPagedList(pageNumber, pageSize);
+                return View(allCustomers);
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
         }
 
 

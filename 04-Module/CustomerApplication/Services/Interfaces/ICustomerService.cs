@@ -5,5 +5,7 @@
     public interface ICustomerService
     {
         Task AddCustomerAsync(CustomerForm customerForm);
+
+        IQueryable<CustomerForm> GetAllCustomersAsync();
     }
 }

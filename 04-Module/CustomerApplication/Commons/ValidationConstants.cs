@@ -18,5 +18,10 @@
 
             public const string EmailValidation = "^((?!\\.)[\\w-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$";
         }
+
+        public static class PageValidation
+        {
+            public const int pageSize = 12;
+        }
     }
 }
