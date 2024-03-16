@@ -1,7 +1,8 @@
-﻿@model IPagedList<CustomerForm>
+﻿@using System.Globalization
+@model IPagedList<CustomerForm>
 
 @{
-    ViewBag.Title = "All Products";
+    ViewBag.Title = "All Customers";
 }
 
 <div class="all-main-container">
@@ -19,6 +20,7 @@
                         <th>First name</th>
                         <th>Last name</th>
                         <th>Email</th>
+                        <th>Phone number</th>
                         <th>Country</th>
                         <th>City</th>
                         <th>Birthdate</th>
@@ -31,7 +33,7 @@
                             <td>@country.FirstName</td>
                             <td>@country.LastName</td>
                             <td>@country.Email</td>
-                            <td>@country.Gender</td>
+                            <td>@country.PhoneNumber</td>
                             <td>@country.Country</td>
                             <td>@country.City</td>
                             <td>@country.Birthday</td>
@@ -41,9 +43,11 @@
             </table>
         </div>
     </div>
-</div>
 
-<div class="pull-right">
-    @Html.PagedListPager(Model, page => Url.Action("All", new { page }))
+
+    <div class="pull-right">
+        @Html.PagedListPager(Model, page => Url.Action("All", new { page }))
+    </div>
+
 </div>
 
