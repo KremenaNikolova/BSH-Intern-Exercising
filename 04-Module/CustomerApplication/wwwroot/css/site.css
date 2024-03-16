@@ -50,3 +50,35 @@ footer {
     justify-content: center;
     display: flex;
 }
+
+.all-main-container {
+    background-color: #E7F3FF;
+}
+
+.pagination {
+    margin-top: 0.3em;
+    justify-content: center;
+    display: flex;
+}
+
+.pagination a, span {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+
+    .pagination a.active {
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid #4CAF50;
+    }
+
+.pagination span {
+    background-color: #0153A2;
+    border-radius: 5px;
+    color: white;
+}
