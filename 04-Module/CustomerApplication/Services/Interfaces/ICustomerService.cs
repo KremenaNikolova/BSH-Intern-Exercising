@@ -7,5 +7,7 @@
         Task AddCustomerAsync(CustomerForm customerForm);
 
         IQueryable<CustomerForm> GetAllCustomersQuery();
+
+        Task<bool> IsUserWithThisEmailExisAsync(string email);
     }
 }

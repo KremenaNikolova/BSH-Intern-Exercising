@@ -2,6 +2,8 @@
 {
     using System.Threading.Tasks;
     
+    using Microsoft.EntityFrameworkCore;
+    
     using CustomerApplication.Data;
     using CustomerApplication.Data.Models;
     using CustomerApplication.Services.Interfaces;
@@ -51,6 +53,18 @@
                 .AsQueryable();
 
             return allCustomers;
+        }
+
+        public async Task<bool> IsUserWithThisEmailExisAsync(string email)
+        {
+            var emailCheck = await _dbContext
+                .Customers
+                .Where(c => c.Email == email)
+                .FirstOrDefaultAsync();
+
+            var isExist = emailCheck != null ? true : false;
+
+            return isExist;
         }
     }
 }

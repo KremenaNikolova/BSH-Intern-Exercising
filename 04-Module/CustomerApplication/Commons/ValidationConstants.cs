@@ -14,6 +14,8 @@
 
             public const int EmailMaxLength = 70;
 
+            public const string EmailAlreadyExist = "User with this email already exist";
+
             public const string PhoneNumberValidation = "[0-9]{3}-[0-9]{3}-[0-9]{4}";
 
             public const string EmailValidation = "^((?!\\.)[\\w-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$";

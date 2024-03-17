@@ -28,13 +28,21 @@
         [HttpPost]
         public async Task<IActionResult> Index(CustomerForm customerModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(customerModel);
-            }
-
             try
             {
+                bool isUserEmailExist = await _customerService
+                    .IsUserWithThisEmailExisAsync(customerModel.Email);
+
+                if (isUserEmailExist)
+                {
+                    ModelState.AddModelError(nameof(customerModel.Email), CustomerConstants.EmailAlreadyExist);
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return View(customerModel);
+                }
+
                 await _customerService.AddCustomerAsync(customerModel);
             }
             catch (Exception)
