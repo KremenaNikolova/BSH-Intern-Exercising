@@ -34,7 +34,7 @@
             await _dbContext.SaveChangesAsync();
         }
 
-        public IQueryable<CustomerForm> GetAllCustomersAsync()
+        public IQueryable<CustomerForm> GetAllCustomersQuery()
         {
             var allCustomers = _dbContext
                 .Customers

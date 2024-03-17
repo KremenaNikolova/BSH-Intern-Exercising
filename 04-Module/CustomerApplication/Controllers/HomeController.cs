@@ -53,7 +53,7 @@
 
             try
             {
-                var allCustomers = _customerService.GetAllCustomersAsync().ToPagedList(pageNumber, pageSize);
+                var allCustomers = _customerService.GetAllCustomersQuery().ToPagedList(pageNumber, pageSize);
                 return View(allCustomers);
             }
             catch

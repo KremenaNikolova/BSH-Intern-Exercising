@@ -6,6 +6,6 @@
     {
         Task AddCustomerAsync(CustomerForm customerForm);
 
-        IQueryable<CustomerForm> GetAllCustomersAsync();
+        IQueryable<CustomerForm> GetAllCustomersQuery();
     }
 }
