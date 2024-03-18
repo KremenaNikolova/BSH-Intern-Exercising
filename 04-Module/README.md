@@ -16,8 +16,9 @@ Use ASP.Net Core to create a web page for a customer which should contain the fo
 <br/>
 
 I have added an additional page where all registered users are displayed and functionality that checks if a user with that email already exists.
+![Screenshot 2024-03-18 110913](https://github.com/KremenaNikolova/BSH-Intern-Exercising/assets/106489962/95b5e6a9-d426-4b8b-8b04-7e265cb503e2)
 
-![Screenshot 2024-03-17 121836](https://github.com/KremenaNikolova/BSH-Intern-Exercising/assets/106489962/97f9cad3-568b-4093-a9ac-72c9c8983708)
+
 
 ## Additional Resources:
 
