@@ -1,6 +1,7 @@
 ﻿@using System.Globalization
 @model IPagedList<CustomerForm>
 
+
 @{
     ViewBag.Title = "All Customers";
 }
@@ -36,7 +37,7 @@
                             <td>@country.PhoneNumber</td>
                             <td>@country.Country</td>
                             <td>@country.City</td>
-                            <td>@country.Birthday</td>
+                            <td>@country.Birthday?.ToShortDateString()</td>
                         </tr>
                     }
                 </tbody>
