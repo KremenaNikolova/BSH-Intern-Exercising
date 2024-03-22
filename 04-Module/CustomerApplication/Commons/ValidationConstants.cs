@@ -28,7 +28,11 @@
 
         public static class ProductConstants
         {
+            public const int MinProductNameLength = 2;
             public const int MaxProductNameLength = 100;
+
+            public const string MinPriceValue = "0";
+            public const string MaxPriceValue = "1000";
         }
 
         public static class PageValidation

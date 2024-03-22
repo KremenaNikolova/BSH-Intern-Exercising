@@ -1,0 +1,46 @@
+﻿@model IPagedList<ProductForm>
+
+@{
+    ViewBag.Title = "All Products";
+}
+
+<div class="all-main-container">
+    <hr />
+    <div class="d-flex justify-content-center">
+        <h4>@ViewBag.Title</h4>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in @Model)
+                    {
+                        <tr>
+                            <td>@product.Name</td>
+                            <td>@product.Category</td>
+                            <td>@product.Price</td>
+                            <td>@product.Quantity</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="pull-right pagination">
+        @Html.PagedListPager(Model, page => Url.Action("All", new { page }))
+    </div>
+
+</div>
