@@ -11,6 +11,7 @@
             Products = new List<Product>();
         }
 
+        [Key]
         public int Id { get; set; }
 
         [Required]

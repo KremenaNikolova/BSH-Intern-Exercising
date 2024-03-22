@@ -4,6 +4,7 @@ using CustomerApplication.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CustomerApplication.Migrations
 {
     [DbContext(typeof(CustomerApplicationDbContext))]
-    partial class CustomerApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240322105355_AddProductCategoryTables")]
+    partial class AddProductCategoryTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,33 +41,6 @@ namespace CustomerApplication.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Cloths"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Toys"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Food"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Drinks"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Others"
-                        });
                 });
 
             modelBuilder.Entity("CustomerApplication.Data.Models.Customer", b =>
@@ -156,96 +132,6 @@ namespace CustomerApplication.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            Name = "Shirt",
-                            Price = 5.55m,
-                            Quantity = 3
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 1,
-                            Name = "Jeans",
-                            Price = 15.32m,
-                            Quantity = 25
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 2,
-                            Name = "Dog-Toy",
-                            Price = 3.00m,
-                            Quantity = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 2,
-                            Name = "Ball",
-                            Price = 1.55m,
-                            Quantity = 50
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryId = 3,
-                            Name = "Hamburger",
-                            Price = 4.35m,
-                            Quantity = 3
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CategoryId = 3,
-                            Name = "Chips",
-                            Price = 4.25m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CategoryId = 4,
-                            Name = "Coca-Cola",
-                            Price = 2.60m,
-                            Quantity = 2
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CategoryId = 4,
-                            Name = "Tea",
-                            Price = 2.60m,
-                            Quantity = 3
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CategoryId = 4,
-                            Name = "Soda",
-                            Price = 2.60m,
-                            Quantity = 12
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CategoryId = 5,
-                            Name = "Random-thing",
-                            Price = 123.33m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 11,
-                            CategoryId = 5,
-                            Name = "Random-thing 2",
-                            Price = 123.33m,
-                            Quantity = 1
-                        });
                 });
 
             modelBuilder.Entity("CustomerApplication.Data.Models.CustomerProduct", b =>
