@@ -170,6 +170,45 @@
                     Quantity = 1
                 });
 
+            builder.Entity<CustomerProduct>()
+                .HasData(
+                new CustomerProduct()
+                {
+                    CustomerId = 3,
+                    ProductId = 1,
+                    Quantity = 2
+                },
+                new CustomerProduct()
+                {
+                    CustomerId = 4,
+                    ProductId = 5,
+                    Quantity = 1
+                },
+                new CustomerProduct()
+                {
+                    CustomerId = 6,
+                    ProductId = 3,
+                    Quantity = 11
+                },
+                new CustomerProduct()
+                {
+                    CustomerId = 1,
+                    ProductId = 1,
+                    Quantity = 1
+                },
+                new CustomerProduct()
+                {
+                    CustomerId = 12,
+                    ProductId = 5,
+                    Quantity = 3
+                },
+                new CustomerProduct()
+                {
+                    CustomerId = 3,
+                    ProductId = 2,
+                    Quantity = 1
+                });
+
             base.OnModelCreating(builder);
         }
     }
