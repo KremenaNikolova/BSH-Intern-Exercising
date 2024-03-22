@@ -1,0 +1,47 @@
+﻿@model IPagedList<CustomerProducts>
+
+@{
+    ViewBag.Title = "All Customer Products";
+}
+
+<div class="all-main-container">
+    <hr />
+    <div class="d-flex justify-content-center">
+        <h4>@ViewBag.Title</h4>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var arg in @Model)
+                    {
+                        <tr>
+                            <td>@arg.FullName</td>
+                            <td>@arg.Product</td>
+                            <td>@arg.Quantity</td>
+                            <td>
+                                <a asp-controller="Product" asp-action="Delete" class="btn btn-danger btn-sm">Remove</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="pull-right pagination">
+        @Html.PagedListPager(Model, page => Url.Action("All", new { page }))
+    </div>
+
+</div>

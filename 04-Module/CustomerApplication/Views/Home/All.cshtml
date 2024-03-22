@@ -24,19 +24,24 @@
                         <th>Country</th>
                         <th>City</th>
                         <th>Birthdate</th>
+                        <th>Orders</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var country in @Model)
+                    @foreach (var person in @Model)
                     {
                         <tr>
-                            <td>@country.FirstName</td>
-                            <td>@country.LastName</td>
-                            <td>@country.Email</td>
-                            <td>@country.PhoneNumber</td>
-                            <td>@country.Country</td>
-                            <td>@country.City</td>
-                            <td>@country.Birthday?.ToShortDateString()</td>
+                            <td>@person.FirstName</td>
+                            <td>@person.LastName</td>
+                            <td>@person.Email</td>
+                            <td>@person.PhoneNumber</td>
+                            <td>@person.Country</td>
+                            <td>@person.City</td>
+                            <td>@person.Birthday?.ToShortDateString()</td>
+                            <td>
+                                <a asp-controller="Product" asp-action="AllCustomerProducts" asp-route-id="@person.Id" class="btn btn-info btn-sm">View All</a>
+
+                            </td>
                         </tr>
                     }
                 </tbody>

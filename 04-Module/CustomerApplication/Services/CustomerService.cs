@@ -8,6 +8,7 @@
     using CustomerApplication.Data.Models;
     using CustomerApplication.Services.Interfaces;
     using CustomerApplication.ViewModels.Home;
+    using CustomerApplication.ViewModels.Product;
 
     public class CustomerService : ICustomerService
     {
@@ -42,6 +43,7 @@
                 .Customers
                 .Select(c => new CustomerForm()
                 {
+                    Id = c.Id,
                     FirstName = c.FirstName,
                     LastName = c.LastName,
                     Email = c.Email,
@@ -65,6 +67,42 @@
             var isExist = emailCheck != null ? true : false;
 
             return isExist;
+        }
+
+        public async Task<IEnumerable<CustomerProducts>> GetCustomerProductsAsync(int id)
+        {
+            var customerProducts = await _dbContext
+                .CustomersProducts
+                .Where(cp=>cp.CustomerId == id)
+                .Select(cp => new CustomerProducts()
+                {
+                    FullName = $"{cp.Customer.FirstName} {cp.Customer.LastName}",
+                    Product = cp.Product.Name,
+                    Quantity = cp.Quantity,
+                    CustomerId = id,
+                    ProductId =cp.ProductId
+                })
+                .ToListAsync();
+
+            return customerProducts;
+        }
+
+        public IQueryable<CustomerProducts> GetCustomerProductsQuery(int id)
+        {
+            var customerProducts = _dbContext
+                .CustomersProducts
+                .Where(cp => cp.CustomerId == id)
+                .Select(cp => new CustomerProducts()
+                {
+                    FullName = $"{cp.Customer.FirstName} {cp.Customer.LastName}",
+                    Product = cp.Product.Name,
+                    Quantity = cp.Quantity,
+                    CustomerId = id,
+                    ProductId = cp.ProductId
+                })
+                .AsQueryable();
+
+            return customerProducts;
         }
     }
 }

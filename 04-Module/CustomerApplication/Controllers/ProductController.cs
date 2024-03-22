@@ -12,10 +12,12 @@
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
+        private readonly ICustomerService _customerService;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, ICustomerService customerService)
         {
             _productService = productService;
+            _customerService = customerService;
         }
 
         public IActionResult All(int? page)
@@ -32,6 +34,24 @@
             {
                 return RedirectToAction("Index", "Home");
             }
+        }
+
+        public IActionResult AllCustomerProducts(int id, int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = PageValidation.pageSize;
+
+            try
+            {
+                var customerProducts = _customerService
+                .GetCustomerProductsQuery(id).ToPagedList(pageNumber, pageSize);
+                return View(customerProducts);
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
         }
     }
 }
