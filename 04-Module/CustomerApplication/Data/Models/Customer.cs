@@ -6,6 +6,11 @@
 
     public class Customer
     {
+        public Customer()
+        {
+            CustomerProducts = new List<CustomerProduct>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -32,5 +37,7 @@
         public string? City { get; set; }
 
         public DateTime? Birthday { get; set; }
+
+        public IEnumerable<CustomerProduct> CustomerProducts { get; set; }
     }
 }

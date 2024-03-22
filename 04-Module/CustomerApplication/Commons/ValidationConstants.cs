@@ -21,6 +21,16 @@
             public const string EmailValidation = "^((?!\\.)[\\w-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$";
         }
 
+        public static class CategoryConstants
+        {
+            public const int MaxCategoryNameLength = 50;
+        }
+
+        public static class ProductConstants
+        {
+            public const int MaxProductNameLength = 100;
+        }
+
         public static class PageValidation
         {
             public const int pageSize = 12;
