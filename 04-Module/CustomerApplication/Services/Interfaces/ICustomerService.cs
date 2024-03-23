@@ -14,5 +14,7 @@
         Task<IEnumerable<CustomerProducts>> GetCustomerProductsAsync(int id);
 
         IQueryable<CustomerProducts> GetCustomerProductsQuery(int id);
+
+        Task DeleteCustomerProductAsync(int customerId, int productId);
     }
 }

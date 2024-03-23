@@ -104,5 +104,20 @@
 
             return customerProducts;
         }
+
+        public async Task DeleteCustomerProductAsync(int customerId, int productId)
+        {
+            var customerProductforDelete = await _dbContext.
+                CustomersProducts
+                .FirstAsync(cp => cp.CustomerId == customerId
+                    && cp.ProductId == productId);
+
+            if(customerProductforDelete != null)
+            {
+                _dbContext.CustomersProducts.Remove(customerProductforDelete);
+                await _dbContext.SaveChangesAsync();
+            }
+
+        }
     }
 }

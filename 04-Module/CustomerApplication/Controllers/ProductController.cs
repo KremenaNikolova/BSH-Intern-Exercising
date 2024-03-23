@@ -32,7 +32,7 @@
             }
             catch
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("All", "Home");
             }
         }
 
@@ -49,9 +49,24 @@
             }
             catch
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("All", "Home");
             }
             
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete (int customerId, int productId)
+        {
+            try
+            {
+                await _customerService.DeleteCustomerProductAsync(customerId, productId);
+            }
+            catch
+            {
+                return RedirectToAction("All", "Home");
+            }
+
+            return RedirectToAction("All", "Home");
         }
     }
 }

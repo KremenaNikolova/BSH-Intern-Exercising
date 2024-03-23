@@ -50,7 +50,7 @@
                 return View(customerModel);
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("All", "Home");
 
         }
 

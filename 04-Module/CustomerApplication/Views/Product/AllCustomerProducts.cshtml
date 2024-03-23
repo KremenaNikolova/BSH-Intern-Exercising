@@ -19,7 +19,7 @@
                         <th>Customer</th>
                         <th>Product</th>
                         <th>Quantity</th>
-                        <th>Delete</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,7 +30,9 @@
                             <td>@arg.Product</td>
                             <td>@arg.Quantity</td>
                             <td>
-                                <a asp-controller="Product" asp-action="Delete" class="btn btn-danger btn-sm">Remove</a>
+                                <form method="post" asp-controller="Product" asp-action="Delete" asp-route-customerId="@arg.CustomerId" asp-route-productId="@arg.ProductId">
+                                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                </form>
                             </td>
                         </tr>
                     }
