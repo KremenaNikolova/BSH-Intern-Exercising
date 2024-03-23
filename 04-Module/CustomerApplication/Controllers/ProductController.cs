@@ -7,7 +7,6 @@
     using CustomerApplication.Services.Interfaces;
 
     using static CustomerApplication.Commons.ValidationConstants;
-    
 
     public class ProductController : Controller
     {
@@ -57,16 +56,20 @@
         [HttpPost]
         public async Task<IActionResult> Delete (int customerId, int productId)
         {
+            string url = Request.Headers["Referer"].ToString();
+
             try
             {
                 await _customerService.DeleteCustomerProductAsync(customerId, productId);
+                
             }
             catch
             {
                 return RedirectToAction("All", "Home");
             }
 
-            return RedirectToAction("All", "Home");
+            return Redirect(url);
         }
+
     }
 }
