@@ -9,6 +9,8 @@ Use ASP.Net Core to create a web page for a customer which should contain the fo
 5. The **city** and **country** fields should contain a list of items (please use hardcoded values) and should allow the user to select one value per field.
 6. The **birth date** field should display a simple **calendar** control and shouldn’t allow the user to input invalid dates.
 7. After setting up your page, please insert data into the table from **Lab 3**.
+8. Create additional database tables from previous <a href="https://github.com/KremenaNikolova/BSH-Intern-Exercising/tree/main/03-Module">Modul(3)</a> and seed Database
+9. Add Cascade Delete
 
 ## Solution:
 
@@ -16,8 +18,10 @@ Use ASP.Net Core to create a web page for a customer which should contain the fo
 <br/>
 
 I have added an additional page where all registered users are displayed and functionality that checks if a user with that email already exists.
-![Screenshot 2024-03-18 110913](https://github.com/KremenaNikolova/BSH-Intern-Exercising/assets/106489962/95b5e6a9-d426-4b8b-8b04-7e265cb503e2)
 
+![All Customers](https://github.com/KremenaNikolova/BSH-Intern-Exercising/assets/106489962/8e14e6ed-bc22-41b4-a2ae-bc3a7bb3cfa1)
+
+![Cusromer Products](https://github.com/KremenaNikolova/BSH-Intern-Exercising/assets/106489962/7aa66eae-cb6c-4369-bb6f-7507bb6e11ad)
 
 
 ## Additional Resources:
