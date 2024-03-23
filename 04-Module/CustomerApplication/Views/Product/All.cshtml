@@ -13,7 +13,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <table class="table table-striped">
+            <table class="table table-striped justify-content-between">
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -37,10 +37,16 @@
             </table>
         </div>
     </div>
-
-
-    <div class="pull-right pagination">
-        @Html.PagedListPager(Model, page => Url.Action("All", new { page }))
-    </div>
-
+    @if (Model.HasNextPage)
+    {
+        <div class="pull-right pagination">
+            @Html.PagedListPager(Model, page => Url.Action("All", new { page }))
+        </div>
+    }
+    else
+    {
+        <div>
+            <span></span>
+            </div>
+    }
 </div>
