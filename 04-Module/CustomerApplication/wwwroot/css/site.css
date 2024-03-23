@@ -51,7 +51,7 @@ footer {
     flex: 1;
     flex-wrap: wrap;
 
-    margin-bottom:2em;
+    margin-bottom:1em;
 }
 
 .form-container {
@@ -86,11 +86,10 @@ footer {
 }
 
 .pagination {
-    margin-top: 0.3em;
+    margin-top: 0.1em;
     justify-content: center;
     display: flex;
-    overflow-x: auto; 
-    padding-bottom: 20px; 
+    overflow-x: auto;
 }
 
 @media (max-width: 768px) {
