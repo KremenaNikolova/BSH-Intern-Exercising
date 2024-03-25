@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace CustomerApplication_API.Data.Entities;
-
-public partial class Product
+﻿namespace CustomerApplication_API.Data.Entities
 {
-    public int Id { get; set; }
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using static CustomerApplication_API.Commons.ValidationConstants.ProductConstants;
 
-    public string Name { get; set; } = null!;
+    public class Product
+    {
+        [Key]
+        public int Id { get; set; }
 
-    public int CategoryId { get; set; }
+        [Required]
+        [Display(Name = "Product Name")]
+        [MaxLength(MaxProductNameLength)]
+        public string Name { get; set; } = null!;
 
-    public decimal Price { get; set; }
+        [Required]
+        public Category Category { get; set; } = null!;
 
-    public int Quantity { get; set; }
+        [ForeignKey(nameof(Category))]
+        public int CategoryId { get; set; }
 
-    public virtual Category Category { get; set; } = null!;
+        public decimal Price { get; set; }
 
-    public virtual ICollection<CustomersProduct> CustomersProducts { get; set; } = new List<CustomersProduct>();
+        public int Quantity { get; set; }
+
+    }
 }

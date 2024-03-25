@@ -1,27 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace CustomerApplication_API.Data.Entities;
-
-public partial class Customer
+﻿namespace CustomerApplication_API.Data.Entities
 {
-    public int Id { get; set; }
+    using System.ComponentModel.DataAnnotations;
 
-    public string FirstName { get; set; } = null!;
+    using static CustomerApplication_API.Commons.ValidationConstants.CustomerConstants;
 
-    public string LastName { get; set; } = null!;
+    public class Customer
+    {
+        public Customer()
+        {
+            CustomerProducts = new List<CustomerProduct>();
+        }
 
-    public string Email { get; set; } = null!;
+        [Key]
+        public int Id { get; set; }
 
-    public string? PhoneNumber { get; set; }
+        [Required]
+        [MaxLength(MaxFirstNameLength)]
+        public string FirstName { get; set; } = null!;
 
-    public string? Gender { get; set; }
+        [Required]
+        [MaxLength(MaxLastNameLength)]
+        public string LastName { get; set; } = null!;
 
-    public string? Country { get; set; }
+        [Required]
+        [MaxLength(EmailMaxLength)]
+        public string Email { get; set; } = null!;
 
-    public string? City { get; set; }
+        [Display(Name = "Phone Number")]
+        [RegularExpression(PhoneNumberValidation)]
+        public string? PhoneNumber { get; set; }
 
-    public DateTime? Birthday { get; set; }
+        public string? Gender { get; set; }
 
-    public virtual ICollection<CustomersProduct> CustomersProducts { get; set; } = new List<CustomersProduct>();
+        public string? Country { get; set; }
+
+        public string? City { get; set; }
+
+        public DateTime? Birthday { get; set; }
+
+        public IEnumerable<CustomerProduct> CustomerProducts { get; set; }
+    }
 }

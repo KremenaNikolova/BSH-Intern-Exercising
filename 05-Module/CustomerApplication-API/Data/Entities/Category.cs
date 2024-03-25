@@ -1,13 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace CustomerApplication_API.Data.Entities;
-
-public partial class Category
+﻿namespace CustomerApplication_API.Data.Entities
 {
-    public int Id { get; set; }
+    using System.ComponentModel.DataAnnotations;
 
-    public string Name { get; set; } = null!;
+    using static CustomerApplication_API.Commons.ValidationConstants.CategoryConstants;
 
-    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+    public class Category
+    {
+        public Category()
+        {
+            Products = new List<Product>();
+        }
+
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        [MaxLength(MaxCategoryNameLength)]
+        public string Name { get; set; } = null!;
+
+        public IEnumerable<Product> Products { get; set; }
+    }
 }
