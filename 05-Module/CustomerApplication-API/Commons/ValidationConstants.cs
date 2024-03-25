@@ -37,7 +37,8 @@
 
         public static class PageValidation
         {
-            public const int pageSize = 12;
+            public const int PageDefault = 1; 
+            public const int MaxPageSize = 12;
         }
     }
 }

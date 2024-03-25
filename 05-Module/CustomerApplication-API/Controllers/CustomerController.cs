@@ -1,8 +1,11 @@
 ﻿namespace CustomerApplication_API.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    
     using CustomerApplication_API.Data.Entities;
     using CustomerApplication_API.Services.Interfaces;
-    using Microsoft.AspNetCore.Mvc;
+
+    using static CustomerApplication_API.Commons.ValidationConstants.PageValidation;
 
     [Route("api/customer")]
     [ApiController]
@@ -29,9 +32,14 @@
         }
 
         [HttpGet("{country}")]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomersByCountry(string country)
+        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomersByCountry(string? country, int pageNumber = PageDefault, int pageSize = MaxPageSize)
         {
-            var customer = await _customerService.GetCustomerByCountryAsync(country);
+            if (pageSize > MaxPageSize)
+            {
+                pageSize = MaxPageSize;
+            }
+
+            var customer = await _customerService.GetCustomerByCountryAsync(country, pageNumber, pageSize);
 
             if (customer == null)
             {

@@ -25,14 +25,19 @@
             return customer;
         }
 
-        public async Task<IEnumerable<Customer>> GetCustomerByCountryAsync(string country)
+        public async Task<IEnumerable<Customer>> GetCustomerByCountryAsync(string? country, int pageNumber, int pageSize)
         {
-            var customer = await _dbContext
+            var customerQuery = _dbContext
                 .Customers
                 .Where (c => c.Country == country)
+                .AsQueryable();
+
+            var customerPagination = await customerQuery
+                .Skip(pageSize * (pageNumber - 1))
+                .Take(pageSize)
                 .ToListAsync();
 
-            return customer;
+            return customerPagination;
         }
     }
 }
