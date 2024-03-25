@@ -31,6 +31,11 @@
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder
+                .Entity<Product>()
+                .Property(p => p.Id)
+                .ValueGeneratedOnAdd();
+
+            builder
                 .Entity<Category>()
                 .HasMany(c => c.Products)
                 .WithOne(p => p.Category)
@@ -38,11 +43,21 @@
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder
+                .Entity<Category>()
+                .Property(c => c.Id)
+                .ValueGeneratedOnAdd();
+
+            builder
                 .Entity<Customer>()
                 .HasMany(c => c.CustomerProducts)
                 .WithOne(cp => cp.Customer)
                 .HasForeignKey(ci => ci.CustomerId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .Entity<Customer>()
+                .Property(c => c.Id)
+                .ValueGeneratedOnAdd();
 
             builder
                 .Entity<CustomerProduct>()
