@@ -6,6 +6,7 @@
     using CustomerApplication_API.Services.Interfaces;
 
     using static CustomerApplication_API.Commons.ValidationConstants.PageValidation;
+    using System.Text.Json;
 
     [Route("api/customer")]
     [ApiController]
@@ -39,14 +40,16 @@
                 pageSize = MaxPageSize;
             }
 
-            var customer = await _customerService.GetCustomerByCountryAsync(country, pageNumber, pageSize);
+            var (customers, paginationMetadata) = await _customerService.GetCustomerByCountryAsync(country, pageNumber, pageSize);
 
-            if (customer == null)
+            if (customers == null)
             {
                 return NotFound();
             }
 
-            return Ok(customer);
+            Response.Headers.Append("Pagination", JsonSerializer.Serialize(paginationMetadata));
+
+            return Ok(customers);
         }
     }
 }

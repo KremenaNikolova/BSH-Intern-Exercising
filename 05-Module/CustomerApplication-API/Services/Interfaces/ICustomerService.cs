@@ -7,6 +7,6 @@
     {
         Task<Customer?> GetCustomerByIdAsync(int id);
 
-        Task<IEnumerable<Customer>> GetCustomerByCountryAsync(string? country, int pageNumber, int pageSize);
+        Task<(IEnumerable<Customer>, PaginationMetadata)> GetCustomerByCountryAsync(string? country, int pageNumber, int pageSize);
     }
 }

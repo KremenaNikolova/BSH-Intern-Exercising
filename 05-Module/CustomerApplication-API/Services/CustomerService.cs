@@ -25,7 +25,7 @@
             return customer;
         }
 
-        public async Task<IEnumerable<Customer>> GetCustomerByCountryAsync(string? country, int pageNumber, int pageSize)
+        public async Task<(IEnumerable<Customer>, PaginationMetadata)> GetCustomerByCountryAsync(string? country, int pageNumber, int pageSize)
         {
             var customerQuery = _dbContext
                 .Customers
@@ -37,7 +37,10 @@
                 .Take(pageSize)
                 .ToListAsync();
 
-            return customerPagination;
+            var totalItemsCount = customerPagination.Count;
+            var paginationMetadata = new PaginationMetadata(totalItemsCount, pageSize, pageNumber);
+
+            return (customerPagination, paginationMetadata);
         }
     }
 }
