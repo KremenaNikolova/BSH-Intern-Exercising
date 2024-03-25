@@ -1,22 +1,26 @@
 ﻿namespace CustomerApplication_API.Controllers
 {
+    using System.Text.Json;
+    
     using Microsoft.AspNetCore.Mvc;
     
     using CustomerApplication_API.Data.Entities;
     using CustomerApplication_API.Services.Interfaces;
 
     using static CustomerApplication_API.Commons.ValidationConstants.PageValidation;
-    using System.Text.Json;
+    using CustomerApplication_API.Data.Dtos.Customer;
 
     [Route("api/customer")]
     [ApiController]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
+        private readonly ICustomerRepository _customerRepository;
 
-        public CustomerController(ICustomerService customerService)
+        public CustomerController(ICustomerService customerService, ICustomerRepository customerRepository)
         {
             _customerService = customerService;
+            _customerRepository = customerRepository;
         }
 
         [HttpGet]
@@ -50,6 +54,20 @@
             Response.Headers.Append("Pagination", JsonSerializer.Serialize(paginationMetadata));
 
             return Ok(customers);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddNewCustomer([FromBody] CreateCustomerDto newCustomer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _customerRepository.CreateAsync(newCustomer);
+            await _customerRepository.SaveAsync();
+
+            return Ok();
         }
     }
 }

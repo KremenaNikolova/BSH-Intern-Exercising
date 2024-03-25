@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    
     using static CustomerApplication_API.Commons.ValidationConstants.ProductConstants;
 
     public class Product

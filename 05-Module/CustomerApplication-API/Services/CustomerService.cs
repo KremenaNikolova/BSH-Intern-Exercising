@@ -1,10 +1,12 @@
 ﻿namespace CustomerApplication_API.Services
 {
+    using System.Threading.Tasks;
+    
+    using Microsoft.EntityFrameworkCore;
+    
     using CustomerApplication_API.Data;
     using CustomerApplication_API.Data.Entities;
     using CustomerApplication_API.Services.Interfaces;
-    using Microsoft.EntityFrameworkCore;
-    using System.Threading.Tasks;
 
     public class CustomerService : ICustomerService
     {

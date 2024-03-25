@@ -29,6 +29,7 @@ namespace CustomerApplication_API
             });
 
             builder.Services.AddScoped<ICustomerService, CustomerService>();
+            builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
             
             builder.Services.AddSwaggerGen();
 

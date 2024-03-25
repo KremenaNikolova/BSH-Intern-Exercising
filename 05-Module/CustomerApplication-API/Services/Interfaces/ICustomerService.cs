@@ -1,7 +1,6 @@
 ﻿namespace CustomerApplication_API.Services.Interfaces
 {
     using CustomerApplication_API.Data.Entities;
-    using System.Drawing.Printing;
 
     public interface ICustomerService
     {
