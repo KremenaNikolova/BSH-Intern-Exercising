@@ -16,9 +16,22 @@
         }
 
         [HttpGet]
-        public async Task<ActionResult<Customer>> GetCustomer(int id)
+        public async Task<ActionResult<Customer>> GetCustomerById(int id)
         {
             var customer = await _customerService.GetCustomerByIdAsync(id);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(customer);
+        }
+
+        [HttpGet("{country}")]
+        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomersByCountry(string country)
+        {
+            var customer = await _customerService.GetCustomerByCountryAsync(country);
 
             if (customer == null)
             {

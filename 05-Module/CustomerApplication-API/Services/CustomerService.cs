@@ -25,5 +25,14 @@
             return customer;
         }
 
+        public async Task<IEnumerable<Customer>> GetCustomerByCountryAsync(string country)
+        {
+            var customer = await _dbContext
+                .Customers
+                .Where (c => c.Country == country)
+                .ToListAsync();
+
+            return customer;
+        }
     }
 }

@@ -6,5 +6,6 @@
     {
         Task<Customer?> GetCustomerByIdAsync(int id);
 
+        Task<IEnumerable<Customer>> GetCustomerByCountryAsync(string country);
     }
 }
