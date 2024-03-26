@@ -21,3 +21,4 @@ GET ```https://localhost:{{portNumber}}/api/food/list/sort```
 <a href="https://stackoverflow.com/questions/5144344/a-generic-sort-by-string-field-method">Generic sort by String<a/> <br/>
 <a href="https://stackoverflow.com/questions/24440074/asp-net-mvc-4-get-value-from-iqueryable">If you want to sort IQueryable<a/> <br/>
 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.linq.iorderedenumerable-1?view=net-8.0">How to use IOrderedEnumerable<a/> <br/>
+<a href="https://stackoverflow.com/questions/3025795/c-sharp-attribute-isdefined-example">How to check if the property has Specific Attribute<a/> <br/>
