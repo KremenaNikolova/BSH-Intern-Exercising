@@ -6,6 +6,8 @@
     {
         Task CreateAsync(CreateCustomerDto customer);
 
+        Task UpdatePhoneNumberAsync(CustomerPhoneNumber phoneNumber);
+
         Task SaveAsync();
     }
 }

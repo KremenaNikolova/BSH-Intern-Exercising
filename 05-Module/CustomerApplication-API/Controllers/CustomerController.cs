@@ -56,7 +56,7 @@
             return Ok(customers);
         }
 
-        [HttpPost]
+        [HttpPost("new")]
         public async Task<ActionResult> AddNewCustomer([FromBody] CreateCustomerDto newCustomer)
         {
             if (!ModelState.IsValid)
@@ -68,6 +68,35 @@
             await _customerRepository.SaveAsync();
 
             return Ok();
+        }
+
+        [HttpGet("udate")]
+        public async Task<ActionResult> UpadteCustomerPhoneNumber(int id)
+        {
+            var phoneNumber = await _customerService
+                .GetCustomerPhoneNumber(id);
+
+            if (phoneNumber == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(phoneNumber);
+
+        }
+
+        [HttpPut("update")]
+        public async Task<ActionResult> UpadteCustomerPhoneNumber([FromBody]CustomerPhoneNumber phoneNumber)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _customerRepository.UpdatePhoneNumberAsync(phoneNumber);
+            await _customerRepository.SaveAsync();
+
+            return Ok("Phone number updated successfully.");
         }
     }
 }

@@ -32,6 +32,19 @@
 
         }
 
+        public async Task UpdatePhoneNumberAsync(CustomerPhoneNumber customerPhoneNumber)
+        {
+            var customer = await _dbContext
+                .Customers
+                .Where(c=>c.Id == customerPhoneNumber.Id)
+                .FirstOrDefaultAsync();
+
+            if (customer != null)
+            {
+                customer.PhoneNumber = customerPhoneNumber.PhoneNumber;
+            }
+        }
+
         public async Task SaveAsync()
         {
             await _dbContext.SaveChangesAsync();

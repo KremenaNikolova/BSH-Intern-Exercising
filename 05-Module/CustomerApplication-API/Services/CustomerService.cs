@@ -7,6 +7,7 @@
     using CustomerApplication_API.Data;
     using CustomerApplication_API.Data.Entities;
     using CustomerApplication_API.Services.Interfaces;
+    using CustomerApplication_API.Data.Dtos.Customer;
 
     public class CustomerService : ICustomerService
     {
@@ -43,6 +44,21 @@
             var paginationMetadata = new PaginationMetadata(totalItemsCount, pageSize, pageNumber);
 
             return (customerPagination, paginationMetadata);
+        }
+
+        public async Task<CustomerPhoneNumber?> GetCustomerPhoneNumber(int id)
+        {
+            var phoneNumber = await _dbContext
+                .Customers
+                .Where(c=>c.Id == id)
+                .Select(c => new CustomerPhoneNumber()
+                {
+                    Id = c.Id,
+                    PhoneNumber = c.PhoneNumber
+                })
+                .FirstOrDefaultAsync();
+
+            return phoneNumber;
         }
     }
 }
