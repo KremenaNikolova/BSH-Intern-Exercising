@@ -13,11 +13,11 @@ To retain the abstraction and ensure easy addition of new product types, the new
 GetListOfAllProducts <br/>
 GET ```https://localhost:{{portNumber}}/api/food/list```
 
-GetListOfAllProductsSortedByAscending <br/>
-GET ```https://localhost:{{portNumber}}/api/food/list/sort?propertyName=ExpirationDate&order=ascending```
+GetListOfAllSortedProducts <br/>
+GET ```https://localhost:{{portNumber}}/api/food/list/sort```
 
-GetListOfAllProductsSortedByDescending <br/>
-GET ```https://localhost:{{portNumber}}/api/food/list/sort?propertyName=ExpirationDate&order=descending```
 
 ## Support Resources:
-<a href="https://stackoverflow.com/questions/5144344/a-generic-sort-by-string-field-method">Generic sort by String<a/>
+<a href="https://stackoverflow.com/questions/5144344/a-generic-sort-by-string-field-method">Generic sort by String<a/> <br/>
+<a href="https://stackoverflow.com/questions/24440074/asp-net-mvc-4-get-value-from-iqueryable">If you want to sort IQueryable<a/> <br/>
+<a href="https://learn.microsoft.com/en-us/dotnet/api/system.linq.iorderedenumerable-1?view=net-8.0">How to use IOrderedEnumerable<a/> <br/>
