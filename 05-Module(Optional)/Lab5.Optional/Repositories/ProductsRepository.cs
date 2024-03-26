@@ -39,5 +39,23 @@ namespace Lab5.Optional.Repositories
 
             return sortedList;
         }
+
+
+        public async Task<IEnumerable<TProduct>> GetDescendingSortedListAsync(string propertyName)
+        {
+            var producstList = await _dbSet.ToListAsync();
+
+            var property = typeof(TProduct).GetProperty(propertyName);
+
+            if (property == null)
+            {
+                return Enumerable.Empty<TProduct>();
+            }
+
+            var sortedList = producstList
+                .OrderByDescending(product => property!.GetValue(product));
+
+            return sortedList;
+        }
     }
 }

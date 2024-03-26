@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 using System.Security.Cryptography;
 
+using static Lab5.Optional.Commons.ValidationConstants;
+
 namespace Lab5.Optional.Controllers
 {
     [Route("api/[controller]")]
@@ -26,17 +28,25 @@ namespace Lab5.Optional.Controllers
         }
 
         [Route("list/sort")]
-        public async Task<IActionResult> SortProducts(string propertyName)
+        public async Task<IActionResult> SortProducts(string propertyName, string order = SortingByDefault)
         {
-            var sortedList = await _productsRepository.GetAscendingSortedListAsync(propertyName);
+            var sortedList = Enumerable.Empty<TProduct>();
 
-            if (sortedList.Count() == 0)
+            if (order == SortingByDefault)
+            {
+                sortedList = await _productsRepository.GetAscendingSortedListAsync(propertyName);
+            }
+            else if (order == SortingByDescending)
+            {
+                 sortedList = await _productsRepository.GetDescendingSortedListAsync(propertyName);
+            }
+
+            if (sortedList?.Count() == 0)
             {
                 return NotFound();
             }
 
             return Ok(sortedList);
-
         }
     }
 }
