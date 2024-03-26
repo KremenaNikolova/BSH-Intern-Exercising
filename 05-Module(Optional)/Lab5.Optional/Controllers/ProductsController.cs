@@ -28,20 +28,11 @@ namespace Lab5.Optional.Controllers
         }
 
         [Route("list/sort")]
-        public async Task<IActionResult> SortProducts(string propertyName, string order = SortingByDefault)
+        public async Task<IActionResult> SortProducts()
         {
-            var sortedList = Enumerable.Empty<TProduct>();
+            var sortedList = await _productsRepository.GetSortedListAsync();
 
-            if (order == SortingByDefault)
-            {
-                sortedList = await _productsRepository.GetAscendingSortedListAsync(propertyName);
-            }
-            else if (order == SortingByDescending)
-            {
-                 sortedList = await _productsRepository.GetDescendingSortedListAsync(propertyName);
-            }
-
-            if (sortedList?.Count() == 0)
+            if(sortedList == null)
             {
                 return NotFound();
             }

@@ -6,8 +6,6 @@ namespace Lab5.Optional.Repositories.Interfaces
     {
         Task<IEnumerable<TProduct>> GetProductsAsync();
 
-        Task<IEnumerable<TProduct>> GetAscendingSortedListAsync(string propertyName);
-
-        Task<IEnumerable<TProduct>> GetDescendingSortedListAsync(string propertyName);
+        Task<IEnumerable<TProduct>> GetSortedListAsync();
     }
 }

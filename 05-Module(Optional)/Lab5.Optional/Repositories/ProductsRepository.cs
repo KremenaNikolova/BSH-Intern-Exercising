@@ -1,4 +1,5 @@
 ﻿using Lab5.Optional.DbContexts;
+using Lab5.Optional.Helpers;
 using Lab5.Optional.Models.Interfaces;
 using Lab5.Optional.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -23,39 +24,40 @@ namespace Lab5.Optional.Repositories
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<IEnumerable<TProduct>> GetAscendingSortedListAsync(string propertyName)
+        public async Task<IEnumerable<TProduct>> GetSortedListAsync()
         {
-            var producstList = await _dbSet.ToListAsync();
+            IEnumerable<TProduct> productsList = _dbSet.ToList();
 
-            var property = typeof(TProduct).GetProperty(propertyName);
+            IOrderedEnumerable<TProduct> sortedList = null;
 
-            if (property == null)
+            var properties = typeof(TProduct).GetProperties()
+                .Where(prop => Attribute.IsDefined(prop, typeof(CustomPriorityAttribute)))
+                .OrderBy(prop => prop.GetCustomAttributes<CustomPriorityAttribute>().First().Priority);
+
+            foreach (var property in properties)
             {
-                return Enumerable.Empty<TProduct>();
-            }
+                var attributes = property.GetCustomAttribute<CustomPriorityAttribute>();
+                var descending = attributes!.IsDescending;
 
-            var sortedList = producstList
-                .OrderBy(product => property!.GetValue(product));
+                if (sortedList == null)
+                {
+                    sortedList = descending
+                         ? productsList.OrderByDescending(p => property.GetValue(p))
+                         : productsList.OrderBy(p => property.GetValue(p));
+
+
+                }
+                else
+                {
+                    sortedList = descending
+                        ? sortedList.ThenByDescending(p => property.GetValue(p))
+                        : sortedList.ThenBy(p => property.GetValue(p));
+                }
+
+            }
 
             return sortedList;
         }
 
-
-        public async Task<IEnumerable<TProduct>> GetDescendingSortedListAsync(string propertyName)
-        {
-            var producstList = await _dbSet.ToListAsync();
-
-            var property = typeof(TProduct).GetProperty(propertyName);
-
-            if (property == null)
-            {
-                return Enumerable.Empty<TProduct>();
-            }
-
-            var sortedList = producstList
-                .OrderByDescending(product => property!.GetValue(product));
-
-            return sortedList;
-        }
     }
 }
