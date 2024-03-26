@@ -4,11 +4,12 @@
     
     using Microsoft.AspNetCore.Mvc;
     
+    using CustomerApplication_API.Data.Dtos.Customer;
     using CustomerApplication_API.Data.Entities;
     using CustomerApplication_API.Services.Interfaces;
 
     using static CustomerApplication_API.Commons.ValidationConstants.PageValidation;
-    using CustomerApplication_API.Data.Dtos.Customer;
+    using static CustomerApplication_API.Commons.NotificationMessages.CustomerNotifications;
 
     [Route("api/customer")]
     [ApiController]
@@ -67,7 +68,7 @@
             await _customerRepository.CreateAsync(newCustomer);
             await _customerRepository.SaveAsync();
 
-            return Ok();
+            return Ok(CreateUserSuccessful);
         }
 
         [HttpGet("udate")]
@@ -96,7 +97,7 @@
             await _customerRepository.UpdatePhoneNumberAsync(phoneNumber);
             await _customerRepository.SaveAsync();
 
-            return Ok("Phone number updated successfully.");
+            return Ok(UpdatePhoneNumberSuccessful);
         }
     }
 }
