@@ -2,6 +2,7 @@
 using Lab5.Optional.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 using System.Security.Cryptography;
 
 namespace Lab5.Optional.Controllers
@@ -22,6 +23,20 @@ namespace Lab5.Optional.Controllers
         {
             var result = await _productsRepository.GetProductsAsync();
             return Ok(result);
+        }
+
+        [Route("list/sort")]
+        public async Task<IActionResult> SortProducts(string propertyName)
+        {
+            var sortedList = await _productsRepository.GetAscendingSortedListAsync(propertyName);
+
+            if (sortedList.Count() == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(sortedList);
+
         }
     }
 }
