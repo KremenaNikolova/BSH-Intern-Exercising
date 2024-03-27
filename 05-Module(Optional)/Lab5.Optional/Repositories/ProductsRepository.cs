@@ -26,7 +26,7 @@ namespace Lab5.Optional.Repositories
 
         public async Task<IEnumerable<TProduct>> GetSortedListAsync()
         {
-            IEnumerable<TProduct> productsList = _dbSet.ToList();
+            IEnumerable<TProduct> productsList = await _dbSet.ToListAsync();
 
             IOrderedEnumerable<TProduct> sortedList = null;
 
