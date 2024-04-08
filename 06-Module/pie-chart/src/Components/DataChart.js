@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import datachart from "../datachart.json";
 import { dataModifier } from "../Helper/action";
+import PieChartWithCustomizedLabel from "./PieChart";
 
 function DataChart() {
   const [data] = useState(datachart);
@@ -20,7 +21,7 @@ function DataChart() {
           </li>
         );
       })}
-      ;
+      <PieChartWithCustomizedLabel data={modifyData} />
     </>
   );
 }

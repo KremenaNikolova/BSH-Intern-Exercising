@@ -16,3 +16,13 @@ li::marker {
     font-size: 0.8em;
     color: red;
 }
+
+.chart-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.data-chart{
+    margin-top: 1em;
+}
