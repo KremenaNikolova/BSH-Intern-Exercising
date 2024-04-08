@@ -1,0 +1,18 @@
+li {
+    list-style-type: square;
+}
+
+.btn-name {
+    border: none;
+    background: none;
+    font-size: 0.8em;
+}
+
+.btn-name:hover {
+    cursor: pointer;
+}
+
+li::marker {
+    font-size: 0.8em;
+    color: red;
+}

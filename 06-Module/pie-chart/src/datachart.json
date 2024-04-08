@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Food",
+        "value": 214
+    },
+    {
+        "name": "Clothes",
+        "value": 155
+    },
+    {
+        "name": "Toys",
+        "value": 71
+    },
+    {
+        "name": "Tools",
+        "value": 20
+    },
+    {
+        "name": "Electronics",
+        "value": 6
+    }
+]
