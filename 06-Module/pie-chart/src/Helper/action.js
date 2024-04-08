@@ -11,6 +11,9 @@ export function popFromData(dataObj, setModifyData) {
 export function dataModifier(dataObj, setModifyData, modifyData) {
   const isAdded = modifyData.find((data) => data.name === dataObj.name);
   if (isAdded) {
+    if (modifyData.length === 1) {
+      return;
+    }
     return popFromData(dataObj, setModifyData);
   }
   return pushToData(dataObj, setModifyData);
