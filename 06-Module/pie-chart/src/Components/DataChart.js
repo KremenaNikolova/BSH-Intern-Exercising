@@ -14,21 +14,24 @@ function DataChart() {
   const [modifyData, setModifyData] = useState([firstObj]);
 
   return (
-    <div className="chart-container">
-      {data.map((dataObj, index) => {
-        return (
-          <li key={index}>
-            <button
-              className="btn-name btn-push"
-              onClick={() => dataModifier(dataObj, setModifyData, modifyData, index)}
-            >
-              {dataObj.name}
-            </button>
-          </li>
-        );
-      })}
-
+    <div className="main-container">
       <PieChart data={modifyData} />
+      <div className="chart-list-container">
+        {data.map((dataObj, index) => {
+          return (
+            <li key={index}>
+              <button
+                className="btn-name btn-push"
+                onClick={() =>
+                  dataModifier(dataObj, setModifyData, modifyData, index)
+                }
+              >
+                {dataObj.name}
+              </button>
+            </li>
+          );
+        })}
+      </div>
     </div>
   );
 }

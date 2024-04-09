@@ -1,28 +1,30 @@
 li {
-    list-style-type: square;
+    list-style: none;
+    margin-left: 0.4em;
 }
 
 .btn-name {
     border: none;
     background: none;
-    font-size: 0.8em;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 .btn-name:hover {
     cursor: pointer;
 }
 
-li::marker {
-    font-size: 0.8em;
-    color: red;
-}
-
-.chart-container {
+.chart-list-container {
+    margin-top: 3em;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-.data-chart{
+.data-chart {
     margin-top: 1em;
+}
+
+.main-container {
+    margin-top: 1.5em;
 }

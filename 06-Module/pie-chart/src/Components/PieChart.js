@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import CanvasJSReact from "@canvasjs/react-charts";
 
-//var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 class PieChart extends Component {
   render() {
@@ -17,7 +16,6 @@ class PieChart extends Component {
           type: "pie",
           startAngle: 75,
           toolTipContent: "<b>{label}</b>: {y}%",
-          showInLegend: "true",
           legendText: "{label}",
           indexLabelFontSize: 16,
           indexLabel: "{label} - {y}%",
