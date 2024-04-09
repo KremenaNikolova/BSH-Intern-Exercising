@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import datachart from "../datachart.json";
-import { dataModifier } from "../Helper/action";
+import { dataModifier, fulfillBeginData } from "../Helper/action";
 import PieChart from "./PieChart";
-
+import { sortDataBySales } from "../Helper/utils";
 import "./PieChart.css";
 
 function DataChart() {
-  const [data] = useState(datachart);
-  const firstObj = {
-    label: data[0].name,
-    y: data[0].value,
-  };
-  const [modifyData, setModifyData] = useState([firstObj]);
+  const sortData = sortDataBySales(datachart);
+  const [data] = useState(sortData);
+  const beginData = fulfillBeginData(data);
+  const [modifyData, setModifyData] = useState(beginData);
 
   return (
     <div className="main-container">

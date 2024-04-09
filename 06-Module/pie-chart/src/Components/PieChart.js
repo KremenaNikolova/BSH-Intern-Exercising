@@ -23,8 +23,6 @@ class PieChart extends Component {
         },
       ],
     };
-    console.log(data);
-
     return (
       <div>
         <CanvasJSChart
