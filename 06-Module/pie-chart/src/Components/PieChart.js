@@ -1,41 +1,41 @@
-import * as React from "react";
-//import DataChart from "./DataChart";
+import React, { Component } from "react";
+import CanvasJSReact from "@canvasjs/react-charts";
 
-import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
+//var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+class PieChart extends Component {
+  render() {
+    const { data } = this.props;
+    const options = {
+      exportEnabled: true,
+      animationEnabled: true,
+      title: {
+        text: "Sales",
+      },
+      data: [
+        {
+          type: "pie",
+          startAngle: 75,
+          toolTipContent: "<b>{label}</b>: {y}%",
+          showInLegend: "true",
+          legendText: "{label}",
+          indexLabelFontSize: 16,
+          indexLabel: "{label} - {y}%",
+          dataPoints: data,
+        },
+      ],
+    };
+    console.log(data);
 
-import "./PieChart.css";
-
-export default function PieChartWithCustomizedLabel({ data }) {
-  const sizing = {
-    margin: { right: 5 },
-    width: 200,
-    height: 200,
-    legend: { hidden: true },
-  };
-  const TOTAL = data.map((item) => item.value).reduce((a, b) => a + b, 0);
-
-  const getArcLabel = (params) => {
-    const percent = params.value / TOTAL;
-    return `${(percent * 100).toFixed(0)}%`;
-  };
-  return (
-    <div>
-      <PieChart
-        series={[
-          {
-            outerRadius: 80,
-            data,
-            arcLabel: getArcLabel,
-          },
-        ]}
-        sx={{
-          [`& .${pieArcLabelClasses.root}`]: {
-            fill: "white",
-            fontSize: 14,
-          },
-        }}
-        {...sizing}
-      />
-    </div>
-  );
+    return (
+      <div>
+        <CanvasJSChart
+          options={options}
+          /* onRef={ref => this.chart = ref} */
+        />
+        {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
+      </div>
+    );
+  }
 }
+export default PieChart;
