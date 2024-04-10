@@ -14,6 +14,7 @@ export function popFromData(dataObj, setModifyData) {
 
 export function dataModifier(dataObj, setModifyData, modifyData) {
   const isAdded = modifyData.find((data) => data.label === dataObj.name);
+
   if (isAdded) {
     if (modifyData.length === 1) {
       return;
@@ -40,3 +41,4 @@ export function fulfillBeginData(data) {
 
   return fulfillBeginData;
 }
+

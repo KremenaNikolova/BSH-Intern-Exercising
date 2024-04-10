@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CanvasJSReact from "@canvasjs/react-charts";
+import { dataWithPercentage } from "../Helper/utils";
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 class PieChart extends Component {
@@ -19,7 +20,7 @@ class PieChart extends Component {
           legendText: "{label}",
           indexLabelFontSize: 16,
           indexLabel: "{label} - {y}%",
-          dataPoints: data,
+          dataPoints: dataWithPercentage(data),
         },
       ],
     };
