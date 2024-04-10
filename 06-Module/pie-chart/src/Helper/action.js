@@ -15,12 +15,15 @@ export function popFromData(dataObj, setModifyData) {
 export function dataModifier(dataObj, setModifyData, modifyData) {
   const isAdded = modifyData.find((data) => data.label === dataObj.name);
   if (isAdded) {
-    if (modifyData.length === 1 || modifyData.length + 1 === 5) {
+    if (modifyData.length === 1) {
       return;
     }
     return popFromData(dataObj, setModifyData);
   }
-  return pushToData(dataObj, setModifyData);
+
+  if (modifyData.length < 5) {
+    return pushToData(dataObj, setModifyData);
+  }
 }
 
 export function fulfillBeginData(data) {
