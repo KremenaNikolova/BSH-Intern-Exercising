@@ -5,7 +5,7 @@ You receive data about five product types and how many items of each product typ
 2. N should be 3 by default and the user should be able to set that value between 1 and 5 without refreshing the page.
 
 # Solution 
-![pie-chart-demo-gif](https://github.com/KremenaNikolova/BSH-Intern-Exercising/assets/106489962/cd829306-c8c5-44a5-a6da-6f87095321a5)
+![pie-chart-demo](https://github.com/KremenaNikolova/BSH-Intern-Exercising/assets/106489962/c7d5a2f4-b44d-4956-9a74-04ef414fea28)
 
 # Support Resources:
 <a href="https://canvasjs.com/react-charts/pie-chart/">Project Chart Library<a/> <br/>
